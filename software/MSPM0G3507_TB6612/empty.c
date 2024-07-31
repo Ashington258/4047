@@ -47,7 +47,7 @@ int main(void)
 	NVIC_EnableIRQ(UART_0_INST_INT_IRQN);
 	NVIC_EnableIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
-	DL_GPIO_setPins(GPIOB, RGB_Red_PIN_26_PIN);//RGBºìµÆ
+
 	
 //	KEY_Init();
 	
