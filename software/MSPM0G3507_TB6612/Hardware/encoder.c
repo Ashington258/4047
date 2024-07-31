@@ -10,10 +10,14 @@
  */
 #include "empty.h"
 #include "encoder.h"
-#include "led.h"
+#include "key.h"
+
 uint32_t gpio_interrup;
 volatile bool sensor_vector[4] = {0, 0, 0, 0};
 uint8_t key_state = 5;
+
+
+
 // idenfictasion of sensor_vector
 /**
  * 处理按键中断事件。
@@ -21,7 +25,7 @@ uint8_t key_state = 5;
  * 本函数检查当前待处理的中断组，并根据不同的按键中断索引执行相应的按键状态更新。
  * 每个按键都有对应的按下和弹起状态处理逻辑。
  */
-void key_process()
+void key_process(void)
 {
 	uint8_t local_key_state = 0;
 
@@ -74,7 +78,16 @@ void key_process()
 	}
 	// 最终更新 key_state
 	key_state = local_key_state;
+	
 }
+
+
+
+
+
+
+
+
 
 /*******************************************************
 函数功能：外部中断模拟编码器信号

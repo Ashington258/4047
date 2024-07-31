@@ -13,13 +13,9 @@
 #include "led.h"
 #include "motor.h"
 #include "itrt.h"
-#include "PID.h"
-#include "wit_imu.h"
 
 int32_t Get_Encoder_countA, encoderA_cnt, PWMA, Get_Encoder_countB, encoderB_cnt, PWMB;
-uint8_t Key_Num = 0;
 
-control_struc Yao;
 
 uint8_t flag_10ms = 0;
 uint8_t flag_15ms = 0;
@@ -57,11 +53,9 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 //			if(flag_20ms == 4)		//20ms
 //			{
 //				flag_20ms = 0;
-
-
 //			}
 
-			if(flag_40ms == 8)
+			if(flag_40ms == 8)		//40ms
 			{
 				flag_40ms=0;
 				encoderA_cnt = Get_Encoder_countA;//两个电机安装相反，所以编码器值也要相反

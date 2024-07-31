@@ -32,8 +32,7 @@
 #include "empty.h"
 
 
- extern int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
-// uint8_t Key_Num = 0;
+extern int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
 
 void oled_show(void);
 
@@ -53,16 +52,15 @@ int main(void)
 	
 	OLED_Init();
 	OLED_Clear();
+		
 
-//	KEY_Init();
-
+		
 	while (1)
 	{
-		Set_PWM(800,800);
-		oled_show();
-		LED_ON();
 		
-	
+//		Set_PWM(800,800);
+//		oled_show();
+
 	}
 }
 
@@ -71,6 +69,7 @@ void oled_show(void)
 	OLED_ShowSignedNum(0,0,encoderA_cnt,4,16,1);
 	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
 
+//	OLED_ShowSignedNum(0,40,Get_Encoder_countA,4,16,1);
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 40, imuData.angle.yaw, 4, 16, 1);
