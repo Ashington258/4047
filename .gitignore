@@ -1,2 +1,8 @@
 *.o
 *.d
+
+
+# 忽略keil 缓存文件
+
+*.uvguix.86156
+software/MSPM0G3507_TB6612/keil/empty_LP_MSPM0G3507_nortos_keil.uvoptx
