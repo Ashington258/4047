@@ -9,3 +9,5 @@ sensor1,sensor2,sensor3,sensor4
 0,0,1,0,
 1,0,0,0,
 0,0,0,1,
+
+X,X,X,X,
