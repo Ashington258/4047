@@ -184,7 +184,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		OLED_SCL_PIN |
 		OLED_SDA_PIN);
     DL_GPIO_setLowerPinsPolarity(GPIOA, DL_GPIO_PIN_15_EDGE_RISE |
-		DL_GPIO_PIN_2_EDGE_RISE);
+		DL_GPIO_PIN_2_EDGE_RISE_FALL);
     DL_GPIO_setUpperPinsPolarity(GPIOA, DL_GPIO_PIN_16_EDGE_RISE |
 		DL_GPIO_PIN_17_EDGE_RISE |
 		DL_GPIO_PIN_22_EDGE_RISE);
@@ -199,9 +199,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		ENCODERB_E2B_PIN |
 		infrared_tube_pair_sensor_1_PIN);
     DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_9_EDGE_RISE);
-    DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_24_EDGE_RISE |
-		DL_GPIO_PIN_20_EDGE_RISE |
-		DL_GPIO_PIN_19_EDGE_RISE);
+    DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_24_EDGE_RISE_FALL |
+		DL_GPIO_PIN_20_EDGE_RISE_FALL |
+		DL_GPIO_PIN_19_EDGE_RISE_FALL);
     DL_GPIO_clearInterruptStatus(GPIOB, infrared_tube_pair_sensor_2_PIN |
 		infrared_tube_pair_sensor_3_PIN |
 		infrared_tube_pair_sensor_4_PIN);

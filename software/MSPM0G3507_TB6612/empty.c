@@ -35,7 +35,7 @@
 #include "led.h"
 #include "motor.h"
 #include "oled.h"
-
+#include "encoder.h"
 
 
 //int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
@@ -60,7 +60,7 @@ int main(void)
 
 	OLED_Init();
 	OLED_Clear();
-	
+
 //	KEY_Init();
 	
 //	OLED_ShowString(0,20,(uint8_t*)"B",16,1);//8*16 
@@ -69,33 +69,21 @@ int main(void)
     {
 //		printf("%d  %d\n\r",Yao.encoder_l,Yao.encoder_r);
 		oled_show();	
-		LED_ON();
+
     }
 }
 
 
 
-
-
-
-
 void oled_show(void)
 {
-//      OLED_ShowString(0,8,(uint8_t*)"A",12,1);//6*12 
-//      OLED_ShowString(0,20,(uint8_t*)"B",16,1);//8*16 
-//      OLED_ShowString(0,36,(uint8_t*)"C",24,1);//12*24 
-//		
-////	OLED_ShowString(0,0*16,"Hello Word",OLED_8X16);
-		
-//		i--;
-		OLED_ShowNum(0,0,8888,4,12,1);
-		OLED_ShowSignedNum(0,10,-6666,4,12,1);
-		OLED_ShowNum(0,20,8888,4,12,1);
-		OLED_ShowSignedNum(0,30,-6666,4,16,1);	
-//		OLED_ShowSignedNum(0,0,i,3,16,1);
-			   
-        OLED_Refresh();
-        delay_ms(100);
+
+//		OLED_ShowNum(0,0,sensor_vector[0],1,16,1);	
+//		OLED_ShowNum(0,15,sensor_vector[1],1,16,1);	
+//		OLED_ShowNum(0,30,sensor_vector[2],1,16,1);	
+//		OLED_ShowNum(0,45,sensor_vector[3],1,16,1);	
+//    OLED_Refresh();
+//    delay_ms(100);
 }
 
 
