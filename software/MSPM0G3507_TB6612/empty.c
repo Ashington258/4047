@@ -32,7 +32,7 @@
 #include "empty.h"
 
 
-// int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
+ extern int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
 // uint8_t Key_Num = 0;
 
 void oled_show(void);
@@ -40,7 +40,8 @@ void oled_show(void);
 int main(void)
 {
 	SYSCFG_DL_init();
-	DL_Timer_startCounter(PWM_0_INST);
+	
+	DL_Timer_startCounter(PWM_1_INST);
 	NVIC_ClearPendingIRQ(UART_0_INST_INT_IRQN);
 	NVIC_ClearPendingIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);
@@ -52,30 +53,23 @@ int main(void)
 	
 	OLED_Init();
 	OLED_Clear();
-		DL_GPIO_setPins(AIN1_PORT,AIN1_PIN_12_PIN);
-		DL_GPIO_clearPins(AIN2_PORT,AIN2_PIN_13_PIN);
-			DL_GPIO_setPins(BIN1_PORT,BIN1_Pin_Bin1_PIN);
-		DL_GPIO_clearPins(BIN2_PORT,BIN2_Pin_Bin2_PIN);
+
 //	KEY_Init();
 
 	while (1)
 	{
-
+		Set_PWM(800,800);
 		oled_show();
 		LED_ON();
 		
-		DL_TimerA_setCaptureCompareValue(PWM_1_INST, 1000, GPIO_PWM_1_C0_IDX);
-		DL_TimerA_setCaptureCompareValue(PWM_1_INST, 1000, GPIO_PWM_1_C1_IDX);
+	
 	}
 }
 
 void oled_show(void)
 {
-//	OLED_ShowSignedNum(0,0,sensor_vector[0],1,12,1);
-//	OLED_ShowSignedNum(0,15,sensor_vector[1],1,12,1);
-//	OLED_ShowSignedNum(0,30,sensor_vector[2],1,12,1);
-//	OLED_ShowSignedNum(0,45,sensor_vector[3],1,12,1);
-
+	OLED_ShowSignedNum(0,0,encoderA_cnt,4,16,1);
+	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
 
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
