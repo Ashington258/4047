@@ -10,7 +10,7 @@
       <TargetName>MSPM0G3507_Project</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6190000::V6.19::ARMCLANG</pCCUsed>
+      <pCCUsed>6210000::V6.21::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -638,6 +638,16 @@
               <FileName>oledfont.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\oledfont.h</FilePath>
+            </File>
+            <File>
+              <FileName>task_fsm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\task_fsm.c</FilePath>
+            </File>
+            <File>
+              <FileName>task_fsm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\task_fsm.h</FilePath>
             </File>
           </Files>
         </Group>

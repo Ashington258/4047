@@ -1,4 +1,14 @@
 /*
+ * @Author: Ashington ashington258@proton.me
+ * @Date: 2024-08-01 04:21:03
+ * @LastEditors: Ashington ashington258@proton.me
+ * @LastEditTime: 2024-08-01 04:55:37
+ * @FilePath: \4047\software\MSPM0G3507_TB6612\empty.c
+ * @Description: ����д���
+ * ��ϵ��ʽ:921488837@qq.com
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
+/*
  * Copyright (c) 2021, Texas Instruments Incorporated
  * All rights reserved.
  *
@@ -30,36 +40,39 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include "empty.h"
-
-extern int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
+#include "task_fsm.h"
+extern int32_t Get_Encoder_countA, encoderA_cnt, PWMA, Get_Encoder_countB, encoderB_cnt, PWMB;
 
 void oled_show(void);
 
 int main(void)
 {
 	SYSCFG_DL_init();
-	
+
 	DL_Timer_startCounter(PWM_1_INST);
 	NVIC_ClearPendingIRQ(UART_0_INST_INT_IRQN);
 	NVIC_ClearPendingIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);
-	//ʹ�ܴ����ж�
+	// ʹ�ܴ����ж�
 	NVIC_EnableIRQ(UART_0_INST_INT_IRQN);
 	NVIC_EnableIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
 
-	
 	OLED_Init();
 	OLED_Clear();
-		
 
-		
+	// KEY_Init();
+
 	while (1)
 	{
-		
-//		Set_PWM(800,800);
-		oled_show();
+		// ���°���״̬
+		// key_state = ...; // ��ȡ����״̬�ľ���ʵ��
 
+		// ����״̬��
+		StateMachine();
+
+		//		Set_PWM(800,800);
+		oled_show();
 	}
 }
 
