@@ -2,8 +2,8 @@
  * @Author: Ashington ashington258@proton.me
  * @Date: 2024-08-01 04:21:03
  * @LastEditors: Ashington ashington258@proton.me
- * @LastEditTime: 2024-08-01 04:21:03
- * @FilePath: \4047\cache\main.c
+ * @LastEditTime: 2024-08-01 04:55:37
+ * @FilePath: \4047\software\MSPM0G3507_TB6612\empty.c
  * @Description: 请填写简介
  * 联系方式:921488837@qq.com
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -44,8 +44,6 @@
 
 extern int32_t Get_Encoder_countA, encoderA_cnt, PWMA, Get_Encoder_countB, encoderB_cnt, PWMB;
 
-void oled_show(void);
-
 int main(void)
 {
 	SYSCFG_DL_init();
@@ -71,9 +69,6 @@ int main(void)
 
 		// 调用状态机
 		StateMachine();
-
-		// 显示OLED信息
-		// oled_show();
 	}
 }
 
