@@ -2,7 +2,7 @@
  * @Author: Ashington ashington258@proton.me
  * @Date: 2024-07-31 15:07:43
  * @LastEditors: Ashington ashington258@proton.me
- * @LastEditTime: 2024-08-01 00:27:17
+ * @LastEditTime: 2024-08-01 01:28:25
  * @FilePath: \MSPM0G3507_TB6612\Hardware\encoder.c
  * @Description: 请填写简介
  * 联系方式:921488837@qq.com
@@ -13,8 +13,68 @@
 #include "led.h"
 uint32_t gpio_interrup;
 volatile bool sensor_vector[4] = {0, 0, 0, 0};
-
+uint8_t key_state = 5;
 // idenfictasion of sensor_vector
+/**
+ * 处理按键中断事件。
+ *
+ * 本函数检查当前待处理的中断组，并根据不同的按键中断索引执行相应的按键状态更新。
+ * 每个按键都有对应的按下和弹起状态处理逻辑。
+ */
+void key_process()
+{
+	uint8_t local_key_state = 0;
+
+	// 按键 1 处理
+	if (!DL_GPIO_readPins(KEYs_PORT, KEYs_key_1_PIN))
+	{
+		// 按键 1 按下
+		local_key_state = 1;
+	}
+	else if (!local_key_state)
+	{
+		// 按键 1 弹起
+		local_key_state = 0;
+	}
+
+	// 按键 2 处理
+	if (!DL_GPIO_readPins(KEYs_PORT, KEYs_key_2_PIN))
+	{
+		// 按键 2 按下
+		local_key_state = 2;
+	}
+	else if (!local_key_state)
+	{
+		// 按键 2 弹起
+		local_key_state = 0;
+	}
+
+	// 按键 3 处理
+	if (!DL_GPIO_readPins(KEYs_PORT, KEYs_key_3_PIN))
+	{
+		// 按键 3 按下
+		local_key_state = 3;
+	}
+	else if (!local_key_state)
+	{
+		// 按键 3 弹起
+		local_key_state = 0;
+	}
+
+	// 按键 4 处理
+	if (!DL_GPIO_readPins(KEYs_PORT, KEYs_key_4_PIN))
+	{
+		// 按键 4 按下
+		local_key_state = 4;
+	}
+	else if (!local_key_state)
+	{
+		// 按键 4 弹起
+		local_key_state = 0;
+	}
+	// 最终更新 key_state
+	key_state = local_key_state;
+}
 
 /*******************************************************
 函数功能：外部中断模拟编码器信号
@@ -120,37 +180,9 @@ void GROUP1_IRQHandler(void)
 		// refreash the sensor_vector[1]
 		sensor_vector[3] = 0;
 	}
+	key_process();
 }
 
-void key_process()
-{
-	switch (DL_Interrupt_getPendingGroup(DL_INTERRUPT_GROUP_1))
-	{
-	case KEYs_key_1_IIDX:
-		if (DL_GPIO_readPins(KEYs_key_1_IIDX, KEYs_key_1_PIN))
-		{
-
-		}
-		else{
-			
-		}
-			break;
-
-	case KEYs_key_2_IIDX:
-		/* code */
-		break;
-
-	case KEYs_key_3_IIDX:
-		/* code */
-		break;
-
-	case KEYs_key_4_IIDX:
-		break;
-
-	default:
-		break;
-	}
-}
 /**
  * 比较两个uint8_t类型的数组是否相同
  *

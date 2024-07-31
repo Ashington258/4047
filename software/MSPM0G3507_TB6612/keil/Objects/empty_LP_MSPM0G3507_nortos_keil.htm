@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\empty_LP_MSPM0G3507_nortos_keil.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\empty_LP_MSPM0G3507_nortos_keil.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Thu Aug  1 00:27:06 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6210000: Last Updated: Thu Aug  1 01:26:09 2024
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -241,7 +241,7 @@ Global Symbols
 <LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 </UL>
 
-<P><STRONG><a name="[21]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
+<P><STRONG><a name="[21]"></a>__scatterload</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
 </UL>
 <BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
@@ -317,7 +317,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_UART_0_init
 </UL>
 
-<P><STRONG><a name="[7]"></a>GROUP1_IRQHandler</STRONG> (Thumb, 212 bytes, Stack size 20 bytes, encoder.o(.text.GROUP1_IRQHandler))
+<P><STRONG><a name="[7]"></a>GROUP1_IRQHandler</STRONG> (Thumb, 248 bytes, Stack size 20 bytes, encoder.o(.text.GROUP1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GROUP1_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mspm0g350x_uvision.o(RESET)
@@ -326,15 +326,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[2d]"></a>OLED_Clear</STRONG> (Thumb, 1278 bytes, Stack size 24 bytes, oled.o(.text.OLED_Clear))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = OLED_Clear &rArr; OLED_Refresh &rArr; OLED_WR_Byte &rArr; Send_Byte &rArr; delay_us
+<P><STRONG><a name="[2d]"></a>OLED_Clear</STRONG> (Thumb, 1620 bytes, Stack size 16 bytes, oled.o(.text.OLED_Clear))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = OLED_Clear &rArr; OLED_Refresh &rArr; OLED_WR_Byte &rArr; Send_Byte &rArr; delay_us
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[2f]"></a>OLED_Init</STRONG> (Thumb, 1504 bytes, Stack size 24 bytes, oled.o(.text.OLED_Init))
+<P><STRONG><a name="[2f]"></a>OLED_Init</STRONG> (Thumb, 1852 bytes, Stack size 24 bytes, oled.o(.text.OLED_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = OLED_Init &rArr; OLED_Refresh &rArr; OLED_WR_Byte &rArr; Send_Byte &rArr; delay_us
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh
@@ -365,8 +365,8 @@ Global Symbols
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
-<P><STRONG><a name="[40]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SYSCFG_DL_GPIO_init
+<P><STRONG><a name="[40]"></a>SYSCFG_DL_GPIO_init</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_GPIO_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SYSCFG_DL_GPIO_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
 </UL>
@@ -383,7 +383,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
 </UL>
 
-<P><STRONG><a name="[41]"></a>SYSCFG_DL_SYSCTL_init</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init))
+<P><STRONG><a name="[41]"></a>SYSCFG_DL_SYSCTL_init</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, ti_msp_dl_config.o(.text.SYSCFG_DL_SYSCTL_init))
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_DL_init
 </UL>
 
@@ -467,7 +467,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1e]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, empty.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = main &rArr; OLED_Clear &rArr; OLED_Refresh &rArr; OLED_WR_Byte &rArr; Send_Byte &rArr; delay_us
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = main &rArr; OLED_Init &rArr; OLED_Refresh &rArr; OLED_WR_Byte &rArr; Send_Byte &rArr; delay_us
 </UL>
 <BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_ON
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Refresh
@@ -498,7 +498,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseIMUData
 </UL>
 
-<P><STRONG><a name="[45]"></a>parseIMUData</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, wit_imu.o(.text.parseIMUData))
+<P><STRONG><a name="[45]"></a>parseIMUData</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, wit_imu.o(.text.parseIMUData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = parseIMUData &rArr; parseAngleData &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parseAngleData
