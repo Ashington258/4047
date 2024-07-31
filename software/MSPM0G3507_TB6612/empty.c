@@ -54,6 +54,8 @@ int main(void)
 	OLED_Clear();
 		DL_GPIO_setPins(AIN1_PORT,AIN1_PIN_12_PIN);
 		DL_GPIO_clearPins(AIN2_PORT,AIN2_PIN_13_PIN);
+			DL_GPIO_setPins(BIN1_PORT,BIN1_Pin_Bin1_PIN);
+		DL_GPIO_clearPins(BIN2_PORT,BIN2_Pin_Bin2_PIN);
 //	KEY_Init();
 
 	while (1)
@@ -62,7 +64,8 @@ int main(void)
 		oled_show();
 		LED_ON();
 		
-		
+		DL_TimerA_setCaptureCompareValue(PWM_1_INST, 1000, GPIO_PWM_1_C0_IDX);
+		DL_TimerA_setCaptureCompareValue(PWM_1_INST, 1000, GPIO_PWM_1_C1_IDX);
 	}
 }
 
