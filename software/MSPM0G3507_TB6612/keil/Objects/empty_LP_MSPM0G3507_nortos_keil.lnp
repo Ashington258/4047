@@ -30,7 +30,6 @@
 ".\objects\encoder.o"
 ".\objects\motor.o"
 ".\objects\itrt.o"
-".\objects\ins.o"
 ".\objects\wit_imu.o"
 ".\objects\pid.o"
 ".\objects\key.o"

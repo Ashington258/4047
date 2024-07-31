@@ -44,21 +44,20 @@ int main(void)
 	NVIC_ClearPendingIRQ(UART_0_INST_INT_IRQN);
 	NVIC_ClearPendingIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);
-	//	//使能串口中断
+	//使能串口中断
 	NVIC_EnableIRQ(UART_0_INST_INT_IRQN);
 	NVIC_EnableIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
 
+	
 	OLED_Init();
 	OLED_Clear();
 
-	//	KEY_Init();
-
-	//	OLED_ShowString(0,20,(uint8_t*)"B",16,1);//8*16
+//	KEY_Init();
 
 	while (1)
 	{
-		//		printf("%d  %d\n\r",Yao.encoder_l,Yao.encoder_r);
+		Set_PWM(0,50);
 		oled_show();
 		LED_ON();
 	}
@@ -66,16 +65,18 @@ int main(void)
 
 void oled_show(void)
 {
-//		OLED_ShowSignedNum(0,0,sensor_vector[0],1,12,1);
-//		OLED_ShowSignedNum(0,15,sensor_vector[1],1,12,1);
-//		OLED_ShowSignedNum(0,30,sensor_vector[2],1,12,1);
-//		OLED_ShowSignedNum(0,45,sensor_vector[3],1,12,1);
+//	OLED_ShowSignedNum(0,0,sensor_vector[0],1,12,1);
+//	OLED_ShowSignedNum(0,15,sensor_vector[1],1,12,1);
+//	OLED_ShowSignedNum(0,30,sensor_vector[2],1,12,1);
+//	OLED_ShowSignedNum(0,45,sensor_vector[3],1,12,1);
 
 
-	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
-	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
-	OLED_ShowSignedNum(0, 40, imuData.angle.yaw, 4, 16, 1);
+//	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
+//	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
+//	OLED_ShowSignedNum(0, 40, imuData.angle.yaw, 4, 16, 1);
+	
+	
+	
 
-		OLED_Refresh();
-//		delay_ms(100);
+	OLED_Refresh();
 }

@@ -1,4 +1,3 @@
-
 #include "PID.h"
 
 PID_ERECT s_pid;
