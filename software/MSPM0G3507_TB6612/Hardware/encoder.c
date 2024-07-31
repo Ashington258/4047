@@ -2,19 +2,19 @@
  * @Author: Ashington ashington258@proton.me
  * @Date: 2024-07-31 15:07:43
  * @LastEditors: Ashington ashington258@proton.me
- * @LastEditTime: 2024-07-31 17:23:50
- * @FilePath: \Hardware\encoder.c
+ * @LastEditTime: 2024-07-31 18:18:19
+ * @FilePath: \MSPM0G3507_TB6612\Hardware\encoder.c
  * @Description: 请填写简介
  * 联系方式:921488837@qq.com
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
+#include "empty.h"
 #include "encoder.h"
 #include "led.h"
 uint32_t gpio_interrup;
+volatile bool sensor_vector[4] = {0, 0, 0, 0};
 
 // idenfictasion of sensor_vector
-static volatile bool sensor_vector[4] = {0, 0, 0, 0};
-
 
 /*******************************************************
 函数功能：外部中断模拟编码器信号
@@ -23,7 +23,7 @@ static volatile bool sensor_vector[4] = {0, 0, 0, 0};
 ***********************************************************/
 void GROUP1_IRQHandler(void)
 {
-
+	
 	// 使用我司D153C驱动模块时，E1A连接PA15、E1B连接PA16、E2A连接PA17，E2B连接PA22
 	// 获取中断信号
 	gpio_interrup = DL_GPIO_getEnabledInterruptStatus(GPIOA, ENCODERA_E1A_PIN | ENCODERA_E1B_PIN | ENCODERB_E2A_PIN | ENCODERB_E2B_PIN);
