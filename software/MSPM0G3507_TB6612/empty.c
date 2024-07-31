@@ -52,14 +52,17 @@ int main(void)
 	
 	OLED_Init();
 	OLED_Clear();
-
+		DL_GPIO_setPins(AIN1_PORT,AIN1_PIN_12_PIN);
+		DL_GPIO_clearPins(AIN2_PORT,AIN2_PIN_13_PIN);
 //	KEY_Init();
 
 	while (1)
 	{
-		Set_PWM(0,50);
+
 		oled_show();
 		LED_ON();
+		
+		
 	}
 }
 
