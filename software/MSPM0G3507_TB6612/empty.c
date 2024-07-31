@@ -63,6 +63,8 @@ int main(void)
 	
 //	KEY_Init();
 	
+//	OLED_ShowString(0,20,(uint8_t*)"B",16,1);//8*16 
+	
     while (1) 
     {
 //		printf("%d  %d\n\r",Yao.encoder_l,Yao.encoder_r);

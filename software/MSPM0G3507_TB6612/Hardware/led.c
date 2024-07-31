@@ -17,12 +17,12 @@ Update£º2024-07-019
 
 All rights reserved
 ***********************************************/
-void LED_ON(void)
+void LED_OFF(void)
 {
 	DL_GPIO_clearPins(LED1_PORT,LED1_PIN_0_PIN);
 }
 
-void LED_OFF(void)
+void LED_ON(void)
 {
 	DL_GPIO_setPins(LED1_PORT,LED1_PIN_0_PIN);
 }

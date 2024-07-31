@@ -414,8 +414,8 @@ Section Cross References
     dl_interrupt.o(.text.DL_Interrupt_unregisterInterrupt) refers to dl_interrupt.o(.vtable) for [Anonymous Symbol]
     dl_interrupt.o(.text.DL_Interrupt_unregisterInterrupt) refers to startup_mspm0g350x_uvision.o(.text) for Default_Handler
     dl_interrupt.o(.ARM.exidx.text.DL_Interrupt_unregisterInterrupt) refers to dl_interrupt.o(.text.DL_Interrupt_unregisterInterrupt) for [Anonymous Symbol]
-    led.o(.ARM.exidx.text.LED_ON) refers to led.o(.text.LED_ON) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED_OFF) refers to led.o(.text.LED_OFF) for [Anonymous Symbol]
+    led.o(.ARM.exidx.text.LED_ON) refers to led.o(.text.LED_ON) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED_Toggle) refers to led.o(.text.LED_Toggle) for [Anonymous Symbol]
     led.o(.text.LED_Flash) refers to led.o(.bss.LED_Flash.temp) for [Anonymous Symbol]
     led.o(.ARM.exidx.text.LED_Flash) refers to led.o(.text.LED_Flash) for [Anonymous Symbol]
@@ -1414,9 +1414,9 @@ Removing Unused input sections from the image.
     Removing dl_interrupt.o(.ARM.exidx.text.DL_Interrupt_unregisterInterrupt), (8 bytes).
     Removing dl_interrupt.o(.vtable), (192 bytes).
     Removing led.o(.text), (0 bytes).
-    Removing led.o(.ARM.exidx.text.LED_ON), (8 bytes).
     Removing led.o(.text.LED_OFF), (12 bytes).
     Removing led.o(.ARM.exidx.text.LED_OFF), (8 bytes).
+    Removing led.o(.ARM.exidx.text.LED_ON), (8 bytes).
     Removing led.o(.text.LED_Toggle), (12 bytes).
     Removing led.o(.ARM.exidx.text.LED_Toggle), (8 bytes).
     Removing led.o(.text.LED_Flash), (48 bytes).
@@ -1706,7 +1706,7 @@ Image Symbol Table
     __arm_cp.1_8                             0x00000fe8   Number         4  key.o(.text.Key_Scan)
     __arm_cp.1_9                             0x00000fec   Number         4  key.o(.text.Key_Scan)
     [Anonymous Symbol]                       0x00000ff0   Section        0  led.o(.text.LED_ON)
-    __arm_cp.0_0                             0x00000ff8   Number         4  led.o(.text.LED_ON)
+    __arm_cp.1_0                             0x00000ff8   Number         4  led.o(.text.LED_ON)
     [Anonymous Symbol]                       0x00000ffc   Section        0  oled.o(.text.OLED_Clear)
     __arm_cp.11_1                            0x0000100c   Number         4  oled.o(.text.OLED_Clear)
     [Anonymous Symbol]                       0x000014fc   Section        0  oled.o(.text.OLED_Init)
@@ -2176,7 +2176,7 @@ Memory Map of the image
     0x00000df6   0x00000df6   0x00000002   PAD
     0x00000df8   0x00000df8   0x00000084   Code   RO          824    .text.GROUP1_IRQHandler  encoder.o
     0x00000e7c   0x00000e7c   0x00000174   Code   RO          932    .text.Key_Scan      key.o
-    0x00000ff0   0x00000ff0   0x0000000c   Code   RO          807    .text.LED_ON        led.o
+    0x00000ff0   0x00000ff0   0x0000000c   Code   RO          809    .text.LED_ON        led.o
     0x00000ffc   0x00000ffc   0x000004fe   Code   RO         1000    .text.OLED_Clear    oled.o
     0x000014fa   0x000014fa   0x00000002   PAD
     0x000014fc   0x000014fc   0x000005e0   Code   RO         1018    .text.OLED_Init     oled.o
