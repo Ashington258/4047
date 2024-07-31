@@ -22,6 +22,8 @@ uint8_t flag_15ms = 0;
 uint8_t flag_20ms = 0;
 uint8_t flag_40ms = 0;
 
+int Encoder_Enable = 1;
+int16_t Encoder_Distance = 0;
 
 void TIMER_0_INST_IRQHandler(void) // 5ms
 {
@@ -33,8 +35,7 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 			flag_15ms++;
 			flag_20ms++;
 			flag_40ms++;
-					
-	
+
 //			pwm output
 //			PWMA = Velocity_A(-0+Yao.gyro_turn_output,Yao.encoder_l);
 //			PWMB = Velocity_B(-0-Yao.gyro_turn_output,Yao.encoder_r);
@@ -61,8 +62,16 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 				encoderA_cnt = Get_Encoder_countA;//两个电机安装相反，所以编码器值也要相反
 				encoderB_cnt = -Get_Encoder_countB;
 				Get_Encoder_countA = 0;//编码器计数值清零
-				Get_Encoder_countB = 0;				
-				
+				Get_Encoder_countB = 0;	
+
+				if(Encoder_Enable == 1)
+				{
+					Encoder_Distance += ((encoderA_cnt+encoderB_cnt)/2);
+				}
+				else if(Encoder_Enable == 0)
+				{
+					Encoder_Distance = 0;
+				}	
 			}
 			
 		}
