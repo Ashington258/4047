@@ -38,11 +38,11 @@ void TIMER_0_INST_IRQHandler(void)		//5ms
 			// pwm output
 				PWMA = Velocity_A(-0+Yao.gyro_turn_output,Yao.encoder_l);
 			  PWMB = Velocity_B(-0-Yao.gyro_turn_output,Yao.encoder_r);
-			  Set_PWM(PWMA,PWMB);
+			  Set_PWM(10,10);
 			if(flag_10ms == 2)		//10ms
 			{
 				flag_10ms = 0;
-				Yao.gyro_turn_output = Cascade_gro_T( &s_pid.T_gyro_pid, erect_gyro_Turn, imuData.gyro.gyroZ, 0 );
+				Yao.gyro_turn_output = -Cascade_gro_T( &s_pid.T_gyro_pid, erect_gyro_Turn, imuData.gyro.gyroZ, 0 );
 				Yao.gyro_turn_output = limit( Yao.gyro_turn_output, 1000 );
 				
 				ins_navigation( 50 );

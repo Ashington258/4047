@@ -4,7 +4,7 @@
 PID_ERECT s_pid;
 
 //GPS×ªÏò
-float erect_gyro_Turn[4]    = { 130 , 0  , 150  , 0   };
+float erect_gyro_Turn[4]    = { 70 , 0  , 0  , 0   };
 float erect_angle_Turn[4]     = { 3.3 ,  0.003,  60  , 1  };      //3.7
 
 

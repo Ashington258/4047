@@ -84,15 +84,15 @@ extern "C" {
 #define PWM_0_INST_CLK_FREQ                                              4000000
 /* GPIO defines for channel 0 */
 #define GPIO_PWM_0_C0_PORT                                                 GPIOA
-#define GPIO_PWM_0_C0_PIN                                          DL_GPIO_PIN_3
-#define GPIO_PWM_0_C0_IOMUX                                       (IOMUX_PINCM8)
-#define GPIO_PWM_0_C0_IOMUX_FUNC                      IOMUX_PINCM8_PF_TIMG7_CCP0
+#define GPIO_PWM_0_C0_PIN                                         DL_GPIO_PIN_23
+#define GPIO_PWM_0_C0_IOMUX                                      (IOMUX_PINCM53)
+#define GPIO_PWM_0_C0_IOMUX_FUNC                     IOMUX_PINCM53_PF_TIMG7_CCP0
 #define GPIO_PWM_0_C0_IDX                                    DL_TIMER_CC_0_INDEX
 /* GPIO defines for channel 1 */
 #define GPIO_PWM_0_C1_PORT                                                 GPIOA
-#define GPIO_PWM_0_C1_PIN                                          DL_GPIO_PIN_4
-#define GPIO_PWM_0_C1_IOMUX                                       (IOMUX_PINCM9)
-#define GPIO_PWM_0_C1_IOMUX_FUNC                      IOMUX_PINCM9_PF_TIMG7_CCP1
+#define GPIO_PWM_0_C1_PIN                                         DL_GPIO_PIN_24
+#define GPIO_PWM_0_C1_IOMUX                                      (IOMUX_PINCM54)
+#define GPIO_PWM_0_C1_IOMUX_FUNC                     IOMUX_PINCM54_PF_TIMG7_CCP1
 #define GPIO_PWM_0_C1_IDX                                    DL_TIMER_CC_1_INDEX
 
 
