@@ -123,10 +123,6 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_DOWN,
 		 DL_GPIO_DRIVE_STRENGTH_LOW, DL_GPIO_HIZ_DISABLE);
 
-    DL_GPIO_initDigitalInputFeatures(KEY4_PIN_9_IOMUX,
-		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
-		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
-
     DL_GPIO_initDigitalOutput(AIN1_PIN_12_IOMUX);
 
     DL_GPIO_initDigitalOutput(AIN2_PIN_13_IOMUX);
@@ -134,16 +130,6 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
     DL_GPIO_initDigitalOutput(BIN1_Pin_Bin1_IOMUX);
 
     DL_GPIO_initDigitalOutput(BIN2_Pin_Bin2_IOMUX);
-
-    DL_GPIO_initDigitalInputFeatures(KEY3_KEY3_PIN_8_IOMUX,
-		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
-		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
-
-    DL_GPIO_initDigitalInputFeatures(KEY2_PIN_7_IOMUX,
-		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
-		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
-
-    DL_GPIO_initDigitalInput(KEY1_PIN_6_IOMUX);
 
     DL_GPIO_initDigitalOutput(BUZZER_BUZZER_PIN_8_IOMUX);
 
@@ -166,6 +152,14 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
     DL_GPIO_initDigitalInput(infrared_tube_pair_sensor_3_IOMUX);
 
     DL_GPIO_initDigitalInput(infrared_tube_pair_sensor_4_IOMUX);
+
+    DL_GPIO_initDigitalInput(KEYs_key_1_IOMUX);
+
+    DL_GPIO_initDigitalInput(KEYs_key_2_IOMUX);
+
+    DL_GPIO_initDigitalInput(KEYs_key_3_IOMUX);
+
+    DL_GPIO_initDigitalInput(KEYs_key_4_IOMUX);
 
     DL_GPIO_clearPins(GPIOA, LED1_PIN_0_PIN |
 		AIN1_PIN_12_PIN |
@@ -198,16 +192,27 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		ENCODERB_E2A_PIN |
 		ENCODERB_E2B_PIN |
 		infrared_tube_pair_sensor_1_PIN);
-    DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_9_EDGE_RISE);
+    DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_6_EDGE_RISE_FALL |
+		DL_GPIO_PIN_7_EDGE_RISE_FALL |
+		DL_GPIO_PIN_8_EDGE_RISE_FALL |
+		DL_GPIO_PIN_9_EDGE_RISE_FALL);
     DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_24_EDGE_RISE_FALL |
 		DL_GPIO_PIN_20_EDGE_RISE_FALL |
 		DL_GPIO_PIN_19_EDGE_RISE_FALL);
     DL_GPIO_clearInterruptStatus(GPIOB, infrared_tube_pair_sensor_2_PIN |
 		infrared_tube_pair_sensor_3_PIN |
-		infrared_tube_pair_sensor_4_PIN);
+		infrared_tube_pair_sensor_4_PIN |
+		KEYs_key_1_PIN |
+		KEYs_key_2_PIN |
+		KEYs_key_3_PIN |
+		KEYs_key_4_PIN);
     DL_GPIO_enableInterrupt(GPIOB, infrared_tube_pair_sensor_2_PIN |
 		infrared_tube_pair_sensor_3_PIN |
-		infrared_tube_pair_sensor_4_PIN);
+		infrared_tube_pair_sensor_4_PIN |
+		KEYs_key_1_PIN |
+		KEYs_key_2_PIN |
+		KEYs_key_3_PIN |
+		KEYs_key_4_PIN);
 
 }
 
@@ -225,7 +230,7 @@ SYSCONFIG_WEAK void SYSCFG_DL_SYSCTL_init(void)
 	DL_SYSCTL_disableHFXT();
 	DL_SYSCTL_disableSYSPLL();
     /* INT_GROUP1 Priority */
-    NVIC_SetPriority(GPIOA_INT_IRQn, 0);
+    NVIC_SetPriority(GPIOB_INT_IRQn, 3);
 
 }
 

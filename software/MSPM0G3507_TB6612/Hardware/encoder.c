@@ -2,7 +2,7 @@
  * @Author: Ashington ashington258@proton.me
  * @Date: 2024-07-31 15:07:43
  * @LastEditors: Ashington ashington258@proton.me
- * @LastEditTime: 2024-07-31 18:18:19
+ * @LastEditTime: 2024-08-01 00:27:17
  * @FilePath: \MSPM0G3507_TB6612\Hardware\encoder.c
  * @Description: 请填写简介
  * 联系方式:921488837@qq.com
@@ -23,7 +23,7 @@ volatile bool sensor_vector[4] = {0, 0, 0, 0};
 ***********************************************************/
 void GROUP1_IRQHandler(void)
 {
-	
+
 	// 使用我司D153C驱动模块时，E1A连接PA15、E1B连接PA16、E2A连接PA17，E2B连接PA22
 	// 获取中断信号
 	gpio_interrup = DL_GPIO_getEnabledInterruptStatus(GPIOA, ENCODERA_E1A_PIN | ENCODERA_E1B_PIN | ENCODERB_E2A_PIN | ENCODERB_E2B_PIN);
@@ -123,6 +123,35 @@ void GROUP1_IRQHandler(void)
 	}
 }
 
+void key_process()
+{
+	switch (DL_Interrupt_getPendingGroup(DL_INTERRUPT_GROUP_1))
+	{
+	case KEYs_key_1_IIDX:
+		if (DL_GPIO_readPins(KEYs_key_1_IIDX, KEYs_key_1_PIN))
+		{
+
+		}
+		else{
+			
+		}
+			break;
+
+	case KEYs_key_2_IIDX:
+		/* code */
+		break;
+
+	case KEYs_key_3_IIDX:
+		/* code */
+		break;
+
+	case KEYs_key_4_IIDX:
+		break;
+
+	default:
+		break;
+	}
+}
 /**
  * 比较两个uint8_t类型的数组是否相同
  *

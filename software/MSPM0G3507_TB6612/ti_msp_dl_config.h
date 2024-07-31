@@ -131,12 +131,6 @@ extern "C" {
 /* Defines for PIN_0: GPIOA.7 with pinCMx 14 on package pin 49 */
 #define LED1_PIN_0_PIN                                           (DL_GPIO_PIN_7)
 #define LED1_PIN_0_IOMUX                                         (IOMUX_PINCM14)
-/* Port definition for Pin Group KEY4 */
-#define KEY4_PORT                                                        (GPIOB)
-
-/* Defines for PIN_9: GPIOB.9 with pinCMx 26 on package pin 61 */
-#define KEY4_PIN_9_PIN                                           (DL_GPIO_PIN_9)
-#define KEY4_PIN_9_IOMUX                                         (IOMUX_PINCM26)
 /* Port definition for Pin Group AIN1 */
 #define AIN1_PORT                                                        (GPIOA)
 
@@ -161,24 +155,6 @@ extern "C" {
 /* Defines for Pin_Bin2: GPIOA.18 with pinCMx 40 on package pin 11 */
 #define BIN2_Pin_Bin2_PIN                                       (DL_GPIO_PIN_18)
 #define BIN2_Pin_Bin2_IOMUX                                      (IOMUX_PINCM40)
-/* Port definition for Pin Group KEY3 */
-#define KEY3_PORT                                                        (GPIOB)
-
-/* Defines for KEY3_PIN_8: GPIOB.8 with pinCMx 25 on package pin 60 */
-#define KEY3_KEY3_PIN_8_PIN                                      (DL_GPIO_PIN_8)
-#define KEY3_KEY3_PIN_8_IOMUX                                    (IOMUX_PINCM25)
-/* Port definition for Pin Group KEY2 */
-#define KEY2_PORT                                                        (GPIOB)
-
-/* Defines for PIN_7: GPIOB.7 with pinCMx 24 on package pin 59 */
-#define KEY2_PIN_7_PIN                                           (DL_GPIO_PIN_7)
-#define KEY2_PIN_7_IOMUX                                         (IOMUX_PINCM24)
-/* Port definition for Pin Group KEY1 */
-#define KEY1_PORT                                                        (GPIOB)
-
-/* Defines for PIN_6: GPIOB.6 with pinCMx 23 on package pin 58 */
-#define KEY1_PIN_6_PIN                                           (DL_GPIO_PIN_6)
-#define KEY1_PIN_6_IOMUX                                         (IOMUX_PINCM23)
 /* Port definition for Pin Group BUZZER */
 #define BUZZER_PORT                                                      (GPIOA)
 
@@ -227,9 +203,10 @@ extern "C" {
 #define infrared_tube_pair_sensor_1_IOMUX                         (IOMUX_PINCM7)
 /* Defines for sensor_2: GPIOB.24 with pinCMx 52 on package pin 23 */
 #define infrared_tube_pair_sensor_2_PORT                                 (GPIOB)
-// pins affected by this interrupt request:["sensor_2","sensor_3","sensor_4"]
-#define infrared_tube_pair_GPIOB_INT_IRQN                       (GPIOB_INT_IRQn)
-#define infrared_tube_pair_GPIOB_INT_IIDX       (DL_INTERRUPT_GROUP1_IIDX_GPIOB)
+// groups represented: ["KEYs","infrared_tube_pair"]
+// pins affected: ["key_1","key_2","key_3","key_4","sensor_2","sensor_3","sensor_4"]
+#define GPIO_MULTIPLE_GPIOB_INT_IRQN                            (GPIOB_INT_IRQn)
+#define GPIO_MULTIPLE_GPIOB_INT_IIDX            (DL_INTERRUPT_GROUP1_IIDX_GPIOB)
 #define infrared_tube_pair_sensor_2_IIDX                    (DL_GPIO_IIDX_DIO24)
 #define infrared_tube_pair_sensor_2_PIN                         (DL_GPIO_PIN_24)
 #define infrared_tube_pair_sensor_2_IOMUX                        (IOMUX_PINCM52)
@@ -243,6 +220,25 @@ extern "C" {
 #define infrared_tube_pair_sensor_4_IIDX                    (DL_GPIO_IIDX_DIO19)
 #define infrared_tube_pair_sensor_4_PIN                         (DL_GPIO_PIN_19)
 #define infrared_tube_pair_sensor_4_IOMUX                        (IOMUX_PINCM45)
+/* Port definition for Pin Group KEYs */
+#define KEYs_PORT                                                        (GPIOB)
+
+/* Defines for key_1: GPIOB.6 with pinCMx 23 on package pin 58 */
+#define KEYs_key_1_IIDX                                      (DL_GPIO_IIDX_DIO6)
+#define KEYs_key_1_PIN                                           (DL_GPIO_PIN_6)
+#define KEYs_key_1_IOMUX                                         (IOMUX_PINCM23)
+/* Defines for key_2: GPIOB.7 with pinCMx 24 on package pin 59 */
+#define KEYs_key_2_IIDX                                      (DL_GPIO_IIDX_DIO7)
+#define KEYs_key_2_PIN                                           (DL_GPIO_PIN_7)
+#define KEYs_key_2_IOMUX                                         (IOMUX_PINCM24)
+/* Defines for key_3: GPIOB.8 with pinCMx 25 on package pin 60 */
+#define KEYs_key_3_IIDX                                      (DL_GPIO_IIDX_DIO8)
+#define KEYs_key_3_PIN                                           (DL_GPIO_PIN_8)
+#define KEYs_key_3_IOMUX                                         (IOMUX_PINCM25)
+/* Defines for key_4: GPIOB.9 with pinCMx 26 on package pin 61 */
+#define KEYs_key_4_IIDX                                      (DL_GPIO_IIDX_DIO9)
+#define KEYs_key_4_PIN                                           (DL_GPIO_PIN_9)
+#define KEYs_key_4_IOMUX                                         (IOMUX_PINCM26)
 
 
 

@@ -61,7 +61,7 @@ void TIMER_0_INST_IRQHandler(void)		//5ms
 			{
 				flag_20ms = 0;
 				
-				Key_Scan();
+//				Key_Scan();
 				
 			}
 			
