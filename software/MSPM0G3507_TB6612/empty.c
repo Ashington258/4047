@@ -35,6 +35,7 @@
 #include "led.h"
 #include "motor.h"
 #include "oled.h"
+#include "wit_imu.h"
 #include "encoder.h"
 
 
@@ -77,13 +78,21 @@ int main(void)
 
 void oled_show(void)
 {
-
-//		OLED_ShowNum(0,0,sensor_vector[0],1,16,1);	
-//		OLED_ShowNum(0,15,sensor_vector[1],1,16,1);	
-//		OLED_ShowNum(0,30,sensor_vector[2],1,16,1);	
-//		OLED_ShowNum(0,45,sensor_vector[3],1,16,1);	
-//    OLED_Refresh();
-//    delay_ms(100);
+//      OLED_ShowString(0,8,(uint8_t*)"A",12,1);//6*12 
+//      OLED_ShowString(0,20,(uint8_t*)"B",16,1);//8*16 
+//      OLED_ShowString(0,36,(uint8_t*)"C",24,1);//12*24 
+//		
+////	OLED_ShowString(0,0*16,"Hello Word",OLED_8X16);
+		
+//		i--;
+		OLED_ShowNum(0,0,8888,4,12,1);
+		OLED_ShowSignedNum(0,10,-6666,4,12,1);
+		OLED_ShowNum(0,20,8888,4,12,1);
+		OLED_ShowSignedNum(0,30,-6666,4,16,1);	
+//		OLED_ShowSignedNum(0,0,i,3,16,1);
+			   
+        OLED_Refresh();
+        delay_ms(100);
 }
 
 
