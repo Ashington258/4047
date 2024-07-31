@@ -123,11 +123,9 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_DOWN,
 		 DL_GPIO_DRIVE_STRENGTH_LOW, DL_GPIO_HIZ_DISABLE);
 
-    DL_GPIO_initDigitalInputFeatures(KEY0_PIN_18_IOMUX,
+    DL_GPIO_initDigitalInputFeatures(KEY4_PIN_9_IOMUX,
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
 		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
-
-    DL_GPIO_initDigitalOutput(RGB_Red_PIN_26_IOMUX);
 
     DL_GPIO_initDigitalOutput(AIN1_PIN_12_IOMUX);
 
@@ -137,17 +135,17 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 
     DL_GPIO_initDigitalOutput(BIN2_Pin_Bin2_IOMUX);
 
-    DL_GPIO_initDigitalInputFeatures(KEY3_PIN_22_IOMUX,
+    DL_GPIO_initDigitalInputFeatures(KEY3_KEY3_PIN_8_IOMUX,
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
 		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
 
-    DL_GPIO_initDigitalInputFeatures(KEY2_PIN_19_IOMUX,
+    DL_GPIO_initDigitalInputFeatures(KEY2_PIN_7_IOMUX,
 		 DL_GPIO_INVERSION_DISABLE, DL_GPIO_RESISTOR_PULL_UP,
 		 DL_GPIO_HYSTERESIS_DISABLE, DL_GPIO_WAKEUP_DISABLE);
 
-    DL_GPIO_initDigitalInput(KEY1_PIN_1_IOMUX);
+    DL_GPIO_initDigitalInput(KEY1_PIN_6_IOMUX);
 
-    DL_GPIO_initDigitalOutput(BUZZER_PIN_2_IOMUX);
+    DL_GPIO_initDigitalOutput(BUZZER_BUZZER_PIN_8_IOMUX);
 
     DL_GPIO_initDigitalInput(ENCODERA_E1A_IOMUX);
 
@@ -157,33 +155,59 @@ SYSCONFIG_WEAK void SYSCFG_DL_GPIO_init(void)
 
     DL_GPIO_initDigitalInput(ENCODERB_E2B_IOMUX);
 
+    DL_GPIO_initDigitalOutput(OLED_SCL_IOMUX);
+
+    DL_GPIO_initDigitalOutput(OLED_SDA_IOMUX);
+
+    DL_GPIO_initDigitalInput(infrared_tube_pair_sensor_1_IOMUX);
+
+    DL_GPIO_initDigitalInput(infrared_tube_pair_sensor_2_IOMUX);
+
+    DL_GPIO_initDigitalInput(infrared_tube_pair_sensor_3_IOMUX);
+
+    DL_GPIO_initDigitalInput(infrared_tube_pair_sensor_4_IOMUX);
+
     DL_GPIO_clearPins(GPIOA, LED1_PIN_0_PIN |
 		AIN1_PIN_12_PIN |
 		AIN2_PIN_13_PIN |
 		BIN1_Pin_Bin1_PIN |
 		BIN2_Pin_Bin2_PIN |
-		BUZZER_PIN_2_PIN);
+		BUZZER_BUZZER_PIN_8_PIN |
+		OLED_SCL_PIN |
+		OLED_SDA_PIN);
     DL_GPIO_enableOutput(GPIOA, LED1_PIN_0_PIN |
 		AIN1_PIN_12_PIN |
 		AIN2_PIN_13_PIN |
 		BIN1_Pin_Bin1_PIN |
 		BIN2_Pin_Bin2_PIN |
-		BUZZER_PIN_2_PIN);
-    DL_GPIO_setLowerPinsPolarity(GPIOA, DL_GPIO_PIN_15_EDGE_RISE);
+		BUZZER_BUZZER_PIN_8_PIN |
+		OLED_SCL_PIN |
+		OLED_SDA_PIN);
+    DL_GPIO_setLowerPinsPolarity(GPIOA, DL_GPIO_PIN_15_EDGE_RISE |
+		DL_GPIO_PIN_2_EDGE_RISE);
     DL_GPIO_setUpperPinsPolarity(GPIOA, DL_GPIO_PIN_16_EDGE_RISE |
 		DL_GPIO_PIN_17_EDGE_RISE |
 		DL_GPIO_PIN_22_EDGE_RISE);
     DL_GPIO_clearInterruptStatus(GPIOA, ENCODERA_E1A_PIN |
 		ENCODERA_E1B_PIN |
 		ENCODERB_E2A_PIN |
-		ENCODERB_E2B_PIN);
+		ENCODERB_E2B_PIN |
+		infrared_tube_pair_sensor_1_PIN);
     DL_GPIO_enableInterrupt(GPIOA, ENCODERA_E1A_PIN |
 		ENCODERA_E1B_PIN |
 		ENCODERB_E2A_PIN |
-		ENCODERB_E2B_PIN);
-    DL_GPIO_clearPins(GPIOB, RGB_Red_PIN_26_PIN);
-    DL_GPIO_enableOutput(GPIOB, RGB_Red_PIN_26_PIN);
+		ENCODERB_E2B_PIN |
+		infrared_tube_pair_sensor_1_PIN);
     DL_GPIO_setLowerPinsPolarity(GPIOB, DL_GPIO_PIN_9_EDGE_RISE);
+    DL_GPIO_setUpperPinsPolarity(GPIOB, DL_GPIO_PIN_24_EDGE_RISE |
+		DL_GPIO_PIN_20_EDGE_RISE |
+		DL_GPIO_PIN_19_EDGE_RISE);
+    DL_GPIO_clearInterruptStatus(GPIOB, infrared_tube_pair_sensor_2_PIN |
+		infrared_tube_pair_sensor_3_PIN |
+		infrared_tube_pair_sensor_4_PIN);
+    DL_GPIO_enableInterrupt(GPIOB, infrared_tube_pair_sensor_2_PIN |
+		infrared_tube_pair_sensor_3_PIN |
+		infrared_tube_pair_sensor_4_PIN);
 
 }
 
