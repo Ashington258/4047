@@ -75,8 +75,14 @@ void GROUP1_IRQHandler(void)
 	}
 	DL_GPIO_clearInterruptStatus(GPIOA, ENCODERA_E1A_PIN | ENCODERA_E1B_PIN | ENCODERB_E2A_PIN | ENCODERB_E2B_PIN);
 
+	
+	
+	
+	
+	
+	
+	
 	// infrared_tube_pair_sensor
-
 	// SNESOR_1
 	if (DL_GPIO_readPins(infrared_tube_pair_sensor_1_PORT, infrared_tube_pair_sensor_1_PIN))
 	{
@@ -122,6 +128,7 @@ void GROUP1_IRQHandler(void)
 		sensor_vector[3] = 0;
 	}
 }
+
 
 /**
  * 比较两个uint8_t类型的数组是否相同

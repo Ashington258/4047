@@ -185,6 +185,10 @@ extern "C" {
 /* Defines for BUZZER_PIN_8: GPIOA.8 with pinCMx 19 on package pin 54 */
 #define BUZZER_BUZZER_PIN_8_PIN                                  (DL_GPIO_PIN_8)
 #define BUZZER_BUZZER_PIN_8_IOMUX                                (IOMUX_PINCM19)
+
+
+
+
 /* Port definition for Pin Group ENCODERA */
 #define ENCODERA_PORT                                                    (GPIOA)
 
