@@ -127,7 +127,7 @@ void UART_0_INST_IRQHandler(void)
                 parseIMUData(imu_data_buffer, &imuData);
                 imu_data_index = 0; // Reset buffer index for next data frame
                 header_index = 0;   // Reset header index for next header validation
-				
+				imuData.angle.yaw = -imuData.angle.yaw;
 				if( imuData.angle.yaw < 0 )
 					imuData.angle.yaw += 360;			
             }

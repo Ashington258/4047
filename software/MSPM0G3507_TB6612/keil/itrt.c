@@ -84,7 +84,7 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 			if(flag_40ms == 8)
 			{
 				flag_40ms=0;
-				Yao.encoder_l =  Get_Encoder_countA;//两个电机安装相反，所以编码器值也要相反
+				Yao.encoder_l = Get_Encoder_countA;//两个电机安装相反，所以编码器值也要相反
 				Yao.encoder_r = -Get_Encoder_countB;
 				Get_Encoder_countA = 0;//编码器计数值清零
 				Get_Encoder_countB = 0;				

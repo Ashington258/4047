@@ -40,7 +40,7 @@ void oled_show(void)
 	OLED_ShowSignedNum(0,10,ins_mode,4,12,1);OLED_ShowSignedNum(50,10,target,4,12,1);
 	OLED_ShowSignedNum(0,20,ins.dis_ins,4,12,1);OLED_ShowSignedNum(50,20,ins.yaw_ins,4,12,1);
 	OLED_ShowSignedNum(0,30,ins.cod_realtime.x,4,12,1);OLED_ShowSignedNum(50,30,ins.cod_realtime.y,4,12,1);
-	OLED_ShowSignedNum(0,40,n,4,12,1);OLED_ShowSignedNum(50,40,ins.cod_saved[2].x,4,12,1);
+	OLED_ShowSignedNum(0,40,Yao.encoder_l ,4,12,1);OLED_ShowSignedNum(50,40,Yao.encoder_r,4,12,1);
 	
 //	OLED_ShowSignedNum(0,20,Encoder_Distance,4,16,1);
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
