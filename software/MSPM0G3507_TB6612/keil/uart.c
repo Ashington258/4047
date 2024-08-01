@@ -82,23 +82,52 @@ uint8_t imu_data_index = 0;
 
 void UART_0_INST_IRQHandler(void)
 {
+    static uint8_t header_index = 0;
+
     if (DL_UART_Main_getPendingInterrupt(UART_0_INST) == DL_UART_MAIN_IIDX_RX)
     {
         uint8_t Data = DL_UART_Main_receiveData(UART_0_INST);
         DL_UART_Main_transmitData(UART_0_INST, Data); // Echo received data (for debugging)
 
-        // Store received data in buffer
-        imu_data_buffer[imu_data_index++] = Data;
-
-        // If buffer is full, process the data
-        if (imu_data_index == IMU_DATA_LENGTH)
+        if (header_index == 0)
         {
-					parseIMUData(imu_data_buffer,&imuData);
-//            printf(imu_data_buffer); // Call the function to process IMU data
-            imu_data_index = 0;        // Reset buffer index for next data frame
-					
-					if( imuData.angle.yaw < 0 )  
-						imuData.angle.yaw += 360;
+            if (Data == 0x55)
+            {
+                imu_data_buffer[header_index++] = Data;
+            }
+            else
+            {
+                // Reset header index if the first byte is not 0x55
+                header_index = 0;
+                imu_data_index = 0;
+            }
+        }
+        else if (header_index == 1)
+        {
+            if (Data == 0x51)
+            {
+                imu_data_buffer[header_index++] = Data;
+                imu_data_index = 2; // Set imu_data_index to 2 to continue storing subsequent data
+            }
+            else
+            {
+                // Reset header index if the second byte is not 0x51
+                header_index = 0;
+                imu_data_index = 0;
+            }
+        }
+        else
+        {
+            // Store received data in buffer
+            imu_data_buffer[imu_data_index++] = Data;
+
+            // If buffer is full, process the data
+            if (imu_data_index == IMU_DATA_LENGTH)
+            {
+                parseIMUData(imu_data_buffer, &imuData);
+                imu_data_index = 0; // Reset buffer index for next data frame
+                header_index = 0;   // Reset header index for next header validation
+            }
         }
     }
 }
