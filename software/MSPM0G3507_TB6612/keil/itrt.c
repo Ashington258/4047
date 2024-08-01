@@ -52,7 +52,7 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 //					ttt = 0;
 //					Yao.target_speed += 100;
 //					if( Yao.target_speed == 800 )
-//						Yao.target_speed = 0;
+//					Yao.target_speed = 0;
 //				}
 			}
 //			
@@ -66,7 +66,7 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 				flag_20ms = 0;
 
 
-				Yao.angle_turn_output = Cascade_angle_T( &s_pid.T_angle_pid, erect_angle_Turn, imuData.angle.yaw, ins.yaw_ins );
+				Yao.angle_turn_output = -Cascade_angle_T( &s_pid.T_angle_pid, erect_angle_Turn, imuData.angle.yaw, ins.yaw_ins );
 //			Yao.angle_turn_output += kp_ * ( imuData.angle.yaw - ins.yaw_ins );
 				PWMA = limit(Yao.target_speed - Yao.angle_turn_output,800);
 			  PWMB = limit(Yao.target_speed + Yao.angle_turn_output,800);
