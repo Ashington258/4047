@@ -11,6 +11,12 @@
 #ifndef TASK_FSM_H
 #define TASK_FSM_H
 
+
+#include "ti_msp_dl_config.h"
+#include "board.h"
+
+extern int8_t delta_v;
+
 // 状态枚举
 typedef enum
 {

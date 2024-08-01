@@ -21,6 +21,7 @@
 #include "encoder.h"
 #include "itrt.h"
 #include "control.h"
+#include "pid.h"
 
 
 #endif

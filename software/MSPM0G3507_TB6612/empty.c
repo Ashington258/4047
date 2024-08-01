@@ -1,44 +1,4 @@
-/*
- * @Author: Ashington ashington258@proton.me
- * @Date: 2024-08-01 04:21:03
- * @LastEditors: Ashington ashington258@proton.me
- * @LastEditTime: 2024-08-01 04:55:37
- * @FilePath: \4047\software\MSPM0G3507_TB6612\empty.c
- * @Description: ����д���
- * ��ϵ��ʽ:921488837@qq.com
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
- */
-/*
- * Copyright (c) 2021, Texas Instruments Incorporated
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * *  Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * *  Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * *  Neither the name of Texas Instruments Incorporated nor the names of
- *    its contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+
 #include "empty.h"
 #include "task_fsm.h"
 
@@ -64,7 +24,9 @@ int main(void)
 	OLED_Init();
 	OLED_Clear();
 	
-	// KEY_Init();
+	PID_Init(&PID_Controller,1,0,0,-100,100);
+	
+//  KEY_Init();
 //	Speed(20,20);
 	while (1)
 	{
@@ -80,11 +42,10 @@ void oled_show(void)
 	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
 
 //	OLED_ShowSignedNum(0,20,Encoder_Distance,4,16,1);
+	OLED_ShowSignedNum(0,35,PID_Controller.output,4,16,1);
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 40, imuData.angle.yaw, 4, 16, 1);
 	
-	
-
 	OLED_Refresh();
 }

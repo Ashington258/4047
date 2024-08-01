@@ -12,6 +12,7 @@ typedef struct
     float output,maxOutput;//输出、输出限幅
 }PID;
 
+extern PID PID_Controller;//修改参数请在empty.c修改
 
 extern float Velcity_Kp,Velcity_Ki,Velcity_Kd; //相关速度PID参数
 

@@ -15,6 +15,7 @@
 #include "Motor.h"
 #include "LED.h"
 #include "control.h"
+#include "pid.h"
 
 // 全局变量定义
 // volatile int key_state = 0;     // 从GPIO获取按下的按键
@@ -22,6 +23,9 @@ volatile int task_end_flag = 0; // 任务结束标志
 
 // 当前状态
 static State current_state = IDLE;
+
+// 差速
+int8_t delta_v;
 
 // 状态机函数
 void StateMachine(void)
@@ -120,7 +124,7 @@ void Task2(void)
 	
 	int16_t Encoder =  Get_Encoder();
 //	Turn_left(Encoder,16);//左转角度刚好
-	Turn_right(Encoder,13);//右转角度刚好
+	Turn_right(Encoder,PID_Controller.output);//右转角度刚好
     // 模拟任务结束
 //    task_end_flag = 1;
 }
