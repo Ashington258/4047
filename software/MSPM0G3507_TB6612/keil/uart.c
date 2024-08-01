@@ -96,6 +96,9 @@ void UART_0_INST_IRQHandler(void)
 					parseIMUData(imu_data_buffer,&imuData);
 //            printf(imu_data_buffer); // Call the function to process IMU data
             imu_data_index = 0;        // Reset buffer index for next data frame
+					
+					if( imuData.angle.yaw < 0 )  
+						imuData.angle.yaw += 360;
         }
     }
 }

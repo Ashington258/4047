@@ -100,18 +100,18 @@ void StateMachine(void)
 // 任务一
 void Task1(void)
 {
-	Speed(70,70);
-	Encoder_Enable = 1;
+//	Speed(70,70);
+//	Encoder_Enable = 1;
     // 任务一具体实现
-	if(Encoder_Distance>3000 && (sensor_vector[0]|sensor_vector[1]|sensor_vector[2]|sensor_vector[3]))
-	{
-		Set_PWM(0,0);
-		Encoder_Enable = 0;  
-		LED_ON();
+//	if(Encoder_Distance>3000 && (sensor_vector[0]|sensor_vector[1]|sensor_vector[2]|sensor_vector[3]))
+//	{
+//		Set_PWM(0,0);
+//		Encoder_Enable = 0;  
+//		LED_ON();
 		
 		// 模拟任务结束
 		task_end_flag = 1;
-	}
+//	}
 	//编码器记到一定数值可以强制任务结束，增加摆头
 	
 }

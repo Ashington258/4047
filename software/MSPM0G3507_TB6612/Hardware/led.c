@@ -17,6 +17,11 @@ Update£º2024-07-019
 
 All rights reserved
 ***********************************************/
+#include "led.h"
+
+uint8_t count_flag = 0;
+
+
 void LED_OFF(void)
 {
 	DL_GPIO_clearPins(LED1_PORT,LED1_PIN_0_PIN);
@@ -25,6 +30,7 @@ void LED_OFF(void)
 
 void LED_ON(void)
 {
+	count_flag = 1;
 	DL_GPIO_setPins(LED1_PORT,LED1_PIN_0_PIN);
 	DL_GPIO_setPins(BUZZER_PORT,BUZZER_BUZZER_PIN_8_PIN);
 }
@@ -40,5 +46,4 @@ void LED_Flash(uint16_t time)
 	if(time==0) LED_ON();
 	else if(++temp==time) LED_Toggle(),temp=0;
 }
-
 

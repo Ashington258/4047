@@ -22,6 +22,7 @@
 #include "itrt.h"
 #include "control.h"
 #include "pid.h"
+#include "ins.h"
 
 
 #endif

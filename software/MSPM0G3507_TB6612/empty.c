@@ -1,4 +1,3 @@
-
 #include "empty.h"
 #include "task_fsm.h"
 
@@ -29,7 +28,7 @@ int main(void)
 //	Speed(20,20);
 	while (1)
 	{
-		StateMachine();
+//		StateMachine();
 		
 		oled_show();
 	}
@@ -37,9 +36,12 @@ int main(void)
 
 void oled_show(void)
 {
-	OLED_ShowSignedNum(0,0,encoderA_cnt,4,16,1);
-	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
-
+	OLED_ShowSignedNum(0,0,imuData.gyro.gyroY,4,12,1);OLED_ShowSignedNum(50,0,(int)imuData.angle.yaw,4,12,1);
+	OLED_ShowSignedNum(0,10,ins_mode,4,12,1);OLED_ShowSignedNum(50,10,target,4,12,1);
+	OLED_ShowSignedNum(0,20,ins.dis_ins,4,12,1);OLED_ShowSignedNum(50,20,ins.yaw_ins,4,12,1);
+	OLED_ShowSignedNum(0,30,ins.cod_realtime.x,4,12,1);OLED_ShowSignedNum(50,30,ins.cod_realtime.y,4,12,1);
+	OLED_ShowSignedNum(0,40,n,4,12,1);OLED_ShowSignedNum(50,40,ins.cod_saved[2].x,4,12,1);
+	
 //	OLED_ShowSignedNum(0,20,Encoder_Distance,4,16,1);
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);

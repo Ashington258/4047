@@ -34,11 +34,13 @@ void key_process(void)
 	{
 		// 按键 1 按下
 		local_key_state = 1;
+		LED_ON();
 	}
 	else if (!local_key_state)
 	{
 		// 按键 1 弹起
 		local_key_state = 0;
+		LED_OFF();
 	}
 
 	// 按键 2 处理
@@ -46,11 +48,13 @@ void key_process(void)
 	{
 		// 按键 2 按下
 		local_key_state = 2;
+		LED_ON();
 	}
 	else if (!local_key_state)
 	{
 		// 按键 2 弹起
 		local_key_state = 0;
+		LED_OFF();
 	}
 
 	// 按键 3 处理
@@ -58,11 +62,13 @@ void key_process(void)
 	{
 		// 按键 3 按下
 		local_key_state = 3;
+		LED_ON();
 	}
 	else if (!local_key_state)
 	{
 		// 按键 3 弹起
 		local_key_state = 0;
+		LED_OFF();
 	}
 
 	// 按键 4 处理
@@ -70,11 +76,13 @@ void key_process(void)
 	{
 		// 按键 4 按下
 		local_key_state = 4;
+		LED_ON();
 	}
 	else if (!local_key_state)
 	{
 		// 按键 4 弹起
 		local_key_state = 0;
+		LED_OFF();
 	}
 	// 最终更新 key_state
 	key_state = local_key_state;

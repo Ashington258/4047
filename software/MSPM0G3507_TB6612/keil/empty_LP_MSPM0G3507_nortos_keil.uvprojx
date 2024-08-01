@@ -605,16 +605,6 @@
               <FilePath>.\PID.h</FilePath>
             </File>
             <File>
-              <FileName>KEY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\KEY.c</FilePath>
-            </File>
-            <File>
-              <FileName>KEY.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\KEY.h</FilePath>
-            </File>
-            <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\uart.c</FilePath>
@@ -658,6 +648,16 @@
               <FileName>control.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Hardware\control.h</FilePath>
+            </File>
+            <File>
+              <FileName>ins.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ins.c</FilePath>
+            </File>
+            <File>
+              <FileName>ins.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ins.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "task_fsm.h": "c",
-        "stdio.h": "c"
-    }
-}
