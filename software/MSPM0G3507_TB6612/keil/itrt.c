@@ -27,8 +27,6 @@ uint8_t flag_40ms = 0;
 int Encoder_Enable = 0;
 int16_t Encoder_Distance = 0;
 
-PID PID_Controller;
-
 void TIMER_0_INST_IRQHandler(void) // 5ms
 {
 	if (DL_TimerA_getPendingInterrupt(TIMER_0_INST))
@@ -43,8 +41,7 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 //			pwm output
 //			PWMA = Velocity_A(-0+Yao.gyro_turn_output,Yao.encoder_l);
 //			PWMB = Velocity_B(-0-Yao.gyro_turn_output,Yao.encoder_r);
-			
-			PID_Calc(&PID_Controller,delta_v,13);
+		
 			
 
 //			if(flag_10ms == 2)		//10ms

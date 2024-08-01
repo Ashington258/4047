@@ -7,7 +7,6 @@ extern int32_t Get_Encoder_countA, encoderA_cnt, PWMA, Get_Encoder_countB, encod
 void oled_show(void);
 
 
-
 int main(void)
 {
 	SYSCFG_DL_init();
@@ -24,7 +23,7 @@ int main(void)
 	OLED_Init();
 	OLED_Clear();
 	
-	PID_Init(&PID_Controller,1,0,0,-100,100);
+//	PID_Init(&PID_Controller,1,0,0,-100,100);
 	
 //  KEY_Init();
 //	Speed(20,20);
@@ -42,7 +41,6 @@ void oled_show(void)
 	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
 
 //	OLED_ShowSignedNum(0,20,Encoder_Distance,4,16,1);
-	OLED_ShowSignedNum(0,35,PID_Controller.output,4,16,1);
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 40, imuData.angle.yaw, 4, 16, 1);
