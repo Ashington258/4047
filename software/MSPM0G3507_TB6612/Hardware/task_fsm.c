@@ -11,6 +11,10 @@
 #include "task_fsm.h"
 #include <stdio.h>
 #include "encoder.h"
+#include "itrt.h"
+#include "Motor.h"
+#include "LED.h"
+#include "control.h"
 
 // 全局变量定义
 // volatile int key_state = 0;     // 从GPIO获取按下的按键
@@ -26,6 +30,7 @@ void StateMachine(void)
     {
     case IDLE:
         // 在空闲状态等待按键按下
+		LED_OFF();
         if (key_state == 1)
         {
             current_state = TASK1;
@@ -50,6 +55,8 @@ void StateMachine(void)
         {
             task_end_flag = 0;
             current_state = IDLE;
+			
+			
         }
         break;
 
@@ -89,26 +96,42 @@ void StateMachine(void)
 // 任务一
 void Task1(void)
 {
+	Speed(70,70);
+	Encoder_Enable = 1;
     // 任务一具体实现
-    printf("Executing Task 1\n");
-    // 模拟任务结束
-    task_end_flag = 1;
+	if(Encoder_Distance>3000 && (sensor_vector[0]|sensor_vector[1]|sensor_vector[2]|sensor_vector[3]))
+	{
+		Set_PWM(0,0);
+		Encoder_Enable = 0;  
+		LED_ON();
+		
+		// 模拟任务结束
+		task_end_flag = 1;
+	}
+	//编码器记到一定数值可以强制任务结束，增加摆头
+	
 }
 
 // 任务二
 void Task2(void)
 {
     // 任务二具体实现
-    printf("Executing Task 2\n");
+//	Speed(70,70);
+	
+	int16_t Encoder =  Get_Encoder();
+//	Turn_left(Encoder,16);//左转角度刚好
+	Turn_right(Encoder,13);//右转角度刚好
     // 模拟任务结束
-    task_end_flag = 1;
+//    task_end_flag = 1;
 }
+
+
 
 // 任务三
 void Task3(void)
 {
     // 任务三具体实现
-    printf("Executing Task 3\n");
+
     // 模拟任务结束
     task_end_flag = 1;
 }
@@ -117,7 +140,9 @@ void Task3(void)
 void Task4(void)
 {
     // 任务四具体实现
-    printf("Executing Task 4\n");
+
     // 模拟任务结束
     task_end_flag = 1;
 }
+
+

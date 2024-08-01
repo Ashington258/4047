@@ -6,5 +6,6 @@
 
 extern int32_t Get_Encoder_countA,encoderA_cnt,PWMA,Get_Encoder_countB,encoderB_cnt,PWMB;
 extern int16_t Encoder_Distance;
+extern int Encoder_Enable ;
 
 #endif

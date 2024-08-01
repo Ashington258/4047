@@ -20,7 +20,7 @@
 #include "wit_imu.h"
 #include "encoder.h"
 #include "itrt.h"
-
+#include "control.h"
 
 
 #endif

@@ -20,11 +20,13 @@ All rights reserved
 void LED_OFF(void)
 {
 	DL_GPIO_clearPins(LED1_PORT,LED1_PIN_0_PIN);
+	DL_GPIO_clearPins(BUZZER_PORT,BUZZER_BUZZER_PIN_8_PIN);
 }
 
 void LED_ON(void)
 {
 	DL_GPIO_setPins(LED1_PORT,LED1_PIN_0_PIN);
+	DL_GPIO_setPins(BUZZER_PORT,BUZZER_BUZZER_PIN_8_PIN);
 }
 
 void LED_Toggle(void)

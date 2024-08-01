@@ -41,9 +41,12 @@
  */
 #include "empty.h"
 #include "task_fsm.h"
+
 extern int32_t Get_Encoder_countA, encoderA_cnt, PWMA, Get_Encoder_countB, encoderB_cnt, PWMB;
 
 void oled_show(void);
+
+
 
 int main(void)
 {
@@ -53,39 +56,33 @@ int main(void)
 	NVIC_ClearPendingIRQ(UART_0_INST_INT_IRQN);
 	NVIC_ClearPendingIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_ClearPendingIRQ(TIMER_0_INST_INT_IRQN);
-	// ʹ�ܴ����ж�
+	
 	NVIC_EnableIRQ(UART_0_INST_INT_IRQN);
 	NVIC_EnableIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
 
 	OLED_Init();
 	OLED_Clear();
-
+	
 	// KEY_Init();
-
+//	Speed(20,20);
 	while (1)
 	{
-		// ���°���״̬
-		// key_state = ...; // ��ȡ����״̬�ľ���ʵ��
-
-		// ����״̬��
 		StateMachine();
-
-		//		Set_PWM(800,800);
+		
 		oled_show();
 	}
 }
 
 void oled_show(void)
 {
-//	OLED_ShowSignedNum(0,0,encoderA_cnt,4,16,1);
-//	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
+	OLED_ShowSignedNum(0,0,encoderA_cnt,4,16,1);
+	OLED_ShowSignedNum(0,20,encoderB_cnt,4,16,1);
 
-	OLED_ShowSignedNum(0,20,Encoder_Distance,4,16,1);
+//	OLED_ShowSignedNum(0,20,Encoder_Distance,4,16,1);
 //	OLED_ShowSignedNum(0, 0, imuData.angle.roll, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 20, imuData.angle.pitch, 4, 16, 1);
 //	OLED_ShowSignedNum(0, 40, imuData.angle.yaw, 4, 16, 1);
-	
 	
 	
 

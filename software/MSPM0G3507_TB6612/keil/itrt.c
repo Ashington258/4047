@@ -22,7 +22,7 @@ uint8_t flag_15ms = 0;
 uint8_t flag_20ms = 0;
 uint8_t flag_40ms = 0;
 
-int Encoder_Enable = 1;
+int Encoder_Enable = 0;
 int16_t Encoder_Distance = 0;
 
 void TIMER_0_INST_IRQHandler(void) // 5ms
