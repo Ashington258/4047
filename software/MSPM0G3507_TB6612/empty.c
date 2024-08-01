@@ -19,9 +19,9 @@ int main(void)
 	NVIC_EnableIRQ(GPIO_MULTIPLE_GPIOA_INT_IRQN);
 	NVIC_EnableIRQ(TIMER_0_INST_INT_IRQN);
 
-	OLED_Init();
-	OLED_Clear();
-	
+//	OLED_Init();
+//	OLED_Clear();
+//	
 //	PID_Init(&PID_Controller,1,0,0,-100,100);
 	
 //  KEY_Init();
@@ -30,7 +30,7 @@ int main(void)
 	{
 //		StateMachine();
 		
-		oled_show();
+//		oled_show();
 	}
 }
 

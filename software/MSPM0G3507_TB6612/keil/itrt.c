@@ -78,7 +78,7 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 				}
 				
 				else
-					Set_PWM( PWMA,  PWMB );
+					Set_PWM( -PWMA,  -PWMB );
 			}
 
 			if(flag_40ms == 8)
