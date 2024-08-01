@@ -40,8 +40,6 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 			
 //			Yao.gyro_turn_output = -Cascade_gro_T( &s_pid.T_gyro_pid, erect_gyro_Turn, imuData.gyro.gyroY, Yao.angle_turn_output );
 
-					
-
 
 			if(flag_10ms == 2)		//10ms
 			{
@@ -64,21 +62,17 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 			if(flag_20ms == 4)		//20ms
 			{
 				flag_20ms = 0;
-
-
 				Yao.angle_turn_output = -Cascade_angle_T( &s_pid.T_angle_pid, erect_angle_Turn, imuData.angle.yaw, ins.yaw_ins );
-//			Yao.angle_turn_output += kp_ * ( imuData.angle.yaw - ins.yaw_ins );
+//				Yao.angle_turn_output += kp_ * ( imuData.angle.yaw - ins.yaw_ins );
 				PWMA = limit(Yao.target_speed - Yao.angle_turn_output,800);
-			  PWMB = limit(Yao.target_speed + Yao.angle_turn_output,800);
+				PWMB = limit(Yao.target_speed + Yao.angle_turn_output,800);
 				
 				if( Yao.stop )
 				{
 					Set_PWM( 0, 0 );
-					
 				}
-				
 				else
-					Set_PWM( PWMA,  PWMB );
+				Set_PWM( PWMA,  PWMB );
 			}
 
 			if(flag_40ms == 8)
@@ -90,28 +84,17 @@ void TIMER_0_INST_IRQHandler(void) // 5ms
 				Get_Encoder_countB = 0;				
 									
 				get_realtime_coordinate( Yao.encoder_l, Yao.encoder_l, imuData.angle.yaw, 0.04, 1 );
-				
-				
-				
-
 			}
+			
 			if(flag_60ms == 12)		//20ms
 			{
 				flag_60ms = 0;
-				
-				
-
-
 			}
+			
 			if(flag_80ms == 16)		//20ms
 			{
 				flag_80ms = 0;
-
-
-			}
-			
-			
-			
+			}	
 		}
 	}
 }

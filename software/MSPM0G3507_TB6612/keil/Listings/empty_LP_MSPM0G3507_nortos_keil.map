@@ -2386,7 +2386,7 @@ Image component sizes
         90          8          0          0          0      14277   dl_uart.o
        376         32          0          4          0       4931   empty.o
        372         36          0          1          8       6442   encoder.o
-       696         36          0          3        193       5341   ins.o
+       696         36          0          3        193       5337   ins.o
        424         76          0          0         50       4756   itrt.o
         48         12          0          0          1       4424   led.o
         84          8          0          0          0       6974   motor.o
@@ -2398,7 +2398,7 @@ Image component sizes
        416          8          0          0         64       5288   wit_imu.o
 
     ----------------------------------------------------------------------
-      8864        672       3484         24       6084     150490   Object Totals
+      8864        672       3484         24       6084     150486   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          2          0         18          0   (incl. Padding)
 
@@ -2481,8 +2481,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14472       1000       3940         28       6084     152186   Grand Totals
-     14472       1000       3940         28       6084     152186   ELF Image Totals
+     14472       1000       3940         28       6084     152182   Grand Totals
+     14472       1000       3940         28       6084     152182   ELF Image Totals
      14472       1000       3940         28          0          0   ROM Totals
 
 ==============================================================================
